@@ -1,7 +1,13 @@
 import React, { Component } from 'react'
 // import * as BooksAPI from './BooksAPI'
 import './App.css'
-import BookShelfs from './BookShelfs';
+import BookShelfs from './BookShelfs'
+
+const shelfs = [
+  {'name': 'Currently Reading'},
+  {'name': 'Want to Read'},
+  {'name': 'Read'}
+]
 
 class BooksApp extends Component {
   state = {
@@ -15,9 +21,7 @@ class BooksApp extends Component {
           <div className="list-books-title">
             <h1>MyReads</h1>
           </div>
-          <div className="list-books-content">
-            <BookShelfs/>
-          </div>
+          <BookShelfs shelfs={shelfs}/>
           <div className="open-search">
             <a onClick={() => this.setState({ showSearchPage: true })}>Add a book</a>
           </div>
