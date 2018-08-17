@@ -3,9 +3,16 @@ import BookShelfChanger from './BookShelfChanger.js'
 
 class Book extends Component {
   render() {
+    let showingBooks
+		if (this.props.books.length === 0) {
+			return null;
+		} else {
+			showingBooks = this.props.books
+    }
+    
     return (
       <ol className="books-grid">
-        {this.props.books.map((book, shelf) => (
+        {showingBooks.filter(book => book.shelf === this.props.shelf.id (
           <li key={book.id}>
             <div className="book">
               <div className="book-top">
