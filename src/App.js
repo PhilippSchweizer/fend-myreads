@@ -4,9 +4,9 @@ import './App.css'
 import BookShelfs from './BookShelfs'
 
 const shelfs = [
-  {'name': 'Currently Reading'},
-  {'name': 'Want to Read'},
-  {'name': 'Read'}
+  {'name': 'Currently Reading', 'id': 'currentlyReading'},
+  {'name': 'Want to Read', 'id': 'wantToRead'},
+  {'name': 'Read', 'id': 'read'}
 ]
 
 class BooksApp extends Component {

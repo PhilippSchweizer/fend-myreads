@@ -6,7 +6,7 @@ class BookShelfs extends Component {
     return (
       <div className="list-books-content">
         {this.props.shelfs.map((shelf) => (
-          <div className="bookshelf">
+          <div key={shelf.id} className="bookshelf">
             <h2 className="bookshelf-title">{shelf.name}</h2>
             <div className="bookshelf-books">
               <ol className="books-grid">
