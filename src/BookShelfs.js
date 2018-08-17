@@ -9,9 +9,7 @@ class BookShelfs extends Component {
           <div key={shelf.id} className="bookshelf">
             <h2 className="bookshelf-title">{shelf.name}</h2>
             <div className="bookshelf-books">
-              <ol className="books-grid">
-                <Book />
-              </ol>
+              <Book  books={this.state.books}/>
             </div>
           </div>
         ))}
