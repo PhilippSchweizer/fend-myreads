@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-// import * as BooksAPI from './BooksAPI'
+import * as BooksAPI from './BooksAPI'
 import './App.css'
 import BookShelfs from './BookShelfs'
 
@@ -12,6 +12,12 @@ const shelfs = [
 class BooksApp extends Component {
   state = {
     books: []
+  }
+
+  componentDidMount() {
+    BooksAPI.getAll().then((books) => {
+      this.setState({ books })
+    })
   }
 
   render() {
