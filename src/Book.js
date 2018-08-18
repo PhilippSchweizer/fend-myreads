@@ -27,6 +27,7 @@ class Book extends Component {
                   }}/>
                 <BookShelfChanger 
                   book={book}
+                  shelf={shelf}
                   changeShelf={changeShelf}/>
               </div>
               <div className="book-title">{book.title}</div>
