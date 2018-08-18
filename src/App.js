@@ -1,12 +1,14 @@
 import React, { Component } from 'react'
-import * as BooksAPI from './BooksAPI'
+import { Route } from 'react-router-dom'
+import Library from './Library.js'
+import SearchPage from './SearchPage.js'
+import * as BooksAPI from './BooksAPI.js'
 import './App.css'
-import BookShelfs from './BookShelfs'
 
 const shelfs = [
-  {'name': 'Currently Reading', 'id': 'currentlyReading'},
-  {'name': 'Want to Read', 'id': 'wantToRead'},
-  {'name': 'Read', 'id': 'read'}
+  { 'name': 'Currently Reading', 'id': 'currentlyReading' },
+  { 'name': 'Want to Read', 'id': 'wantToRead' },
+  { 'name': 'Read', 'id': 'read' }
 ]
 
 class BooksApp extends Component {
@@ -21,18 +23,17 @@ class BooksApp extends Component {
   }
 
   render() {
+    console.log(this.state)
     return (
       <div className="app">
-        <div className="list-books">
-          <div className="list-books-title">
-            <h1>MyReads</h1>
-          </div>
-          <BookShelfs shelfs={shelfs}/>
-          <div className="open-search">
-            <a onClick={() => this.setState({ showSearchPage: true })}>Add a book</a>
-          </div>
-        </div>
-        )}
+        <Route exact path='/' render={() => (
+          <Library 
+            books={this.state.books}
+            shelfs={shelfs}/>
+        )} />
+        <Route path='/search-book' render={() => (
+          <SearchPage />
+        )} />
       </div>
     )
   }

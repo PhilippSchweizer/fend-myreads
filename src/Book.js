@@ -3,16 +3,18 @@ import BookShelfChanger from './BookShelfChanger.js'
 
 class Book extends Component {
   render() {
+    const { books, shelf } = this.props
+    
     let showingBooks
-		if (this.props.books.length === 0) {
+		if (books.length === 0) {
 			return null;
 		} else {
-			showingBooks = this.props.books
+			showingBooks = books.filter(book => book.shelf === shelf)
     }
-    
+
     return (
       <ol className="books-grid">
-        {showingBooks.filter(book => book.shelf === this.props.shelf.id (
+        {showingBooks.map(book => (
           <li key={book.id}>
             <div className="book">
               <div className="book-top">
@@ -21,7 +23,7 @@ class Book extends Component {
                   style={{
                     width: 128,
                     height: 193,
-                    backgroundImage: `url(${book.thumbnail})`
+                    backgroundImage: `url(${book.imageLinks.thumbnail})`
                   }}/>
                 <BookShelfChanger />
               </div>
