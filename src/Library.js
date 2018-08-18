@@ -5,13 +5,15 @@ import BookShelfs from './BookShelfs.js'
 
 class Library extends Component {
   render() {
-    console.log(this.props.shelfs)
+    const {books, shelfs, changeShelf} = this.props
+
     return (
       <div className="list-books">
         <Header />
         <BookShelfs
-          books={this.props.books}
-          shelfs={this.props.shelfs} />
+          books={books}
+          shelfs={shelfs}
+          changeShelf={changeShelf} />
         <div className='open-search'>
           <Link
             to='/search-book'
