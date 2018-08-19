@@ -11,7 +11,7 @@ class Book extends Component {
 		} else {
 			showingBooks = books.filter(book => book.shelf === shelf)
     }
-
+    
     return (
       <ol className="books-grid">
         {showingBooks.map(book => (
@@ -23,7 +23,7 @@ class Book extends Component {
                   style={{
                     width: 128,
                     height: 193,
-                    backgroundImage: `url(${book.imageLinks.thumbnail})`
+                    backgroundImage: `url(${book.imageLinks ? book.imageLinks.thumbnail : ''})`
                   }}/>
                 <BookShelfChanger 
                   book={book}
