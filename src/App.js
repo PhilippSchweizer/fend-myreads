@@ -24,7 +24,7 @@ class BooksApp extends Component {
 
   changeShelf = (book, shelf) => {
     BooksAPI.update(book, shelf)
-    this.updateBooks()   
+    this.updateBooks()
   }
 
   componentDidMount() {
@@ -40,8 +40,8 @@ class BooksApp extends Component {
             shelfs={shelfs}
             changeShelf={this.changeShelf} />
         )} />
-        <Route path='/search-book' render={() => (
-          <SearchPage 
+        <Route path='/search' render={() => (
+          <SearchPage
             changeShelf={this.changeShelf}/>
         )} />
       </div>

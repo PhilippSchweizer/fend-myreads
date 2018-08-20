@@ -21,7 +21,7 @@ class Library extends Component {
         </div>
         <div className='open-search'>
           <Link
-            to='/search-book'
+            to='/search'
           >Add a Book</Link>
         </div>
       </div>
