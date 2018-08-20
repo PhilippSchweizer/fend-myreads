@@ -4,9 +4,9 @@ import BookShelfChanger from './BookShelfChanger.js'
 class Book extends Component {
   render() {
     const { book, shelf, changeShelf } = this.props
-
+    
     return (
-      <li key={book.id}>
+      <li>
         <div className="book">
           <div className="book-top">
             <div
