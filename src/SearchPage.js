@@ -47,12 +47,22 @@ class SearchPage extends Component {
         </div>
         <div className="search-books-results">
           <ol className="books-grid">
-            {this.state.bookSearch.map(book => (
-              <Book
-                key={book.id}
-                book={book}
-                changeShelf={this.props.changeShelf} />
-            ))}
+            {this.state.bookSearch.map(searchedBook => {
+              let shelf = 'none'
+
+              this.props.books.map(book => (
+                book.id === searchedBook.id ? shelf = book.shelf : ''
+              ))
+
+              return (
+                <Book
+                  key={searchedBook.id}
+                  book={searchedBook}
+                  shelf={shelf}
+                  changeShelf={this.props.changeShelf} />
+              )
+            }
+            )}
           </ol>
         </div>
       </div>
