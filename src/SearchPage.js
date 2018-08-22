@@ -1,7 +1,10 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import * as BooksAPI from './BooksAPI.js'
-import Book from './Book.js';
+import Book from './Book.js'
+// Did some research on debouncing as suggested by my project reviewer
+// I found this nice npm package which makes implementing the debounce fairly easy
+import { DebounceInput } from 'react-debounce-input'
 
 class SearchPage extends Component {
   state = {
@@ -38,11 +41,19 @@ class SearchPage extends Component {
         <div className="search-books-bar">
           <Link className="close-search" to="/">Close</Link>
           <div className="search-books-input-wrapper">
-            <input
+          {/*
+          * This input field proved to be very perfomance costly.
+          * It suffices to trigger the function after the user stoped typing in the input field
+          * So in order to limit the rate at which the function is fired, this debounce functionality
+          * was implemented. It uses the 'react-debounce-input' package.
+          */}
+            <DebounceInput
               type="text"
               placeholder="Search by title or author"
               value={this.state.query}
-              onChange={(event) => this.updateQuery(event.target.value)} />
+              minLength={2}
+              debounceTimeout={200}
+              onChange={event => this.updateQuery(event.target.value)} />
           </div>
         </div>
         <div className="search-books-results">
