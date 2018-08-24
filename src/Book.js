@@ -22,7 +22,7 @@ class Book extends Component {
               changeShelf={changeShelf} />
           </div>
           <div className="book-title">{book.title}</div>
-          {// as suggested by project reviewer: use join method to handle multiple authors}
+            {/* as suggested by project reviewer: use join method to handle multiple authors */}
           <div className="book-authors">{book && book.authors && Array.isArray(book.authors) && book.authors.join(" & ")}</div>
         </div>
       </li>
