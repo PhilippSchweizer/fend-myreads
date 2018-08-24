@@ -61,6 +61,7 @@ class SearchPage extends Component {
         </div>
         <div className="search-books-results">
           <ol className="books-grid">
+          {/* Checks that array is not null or undefined */}
             {bookSearch && Array.isArray(bookSearch) && bookSearch.map(searchedBook => {
               let shelf = 'none'
 
