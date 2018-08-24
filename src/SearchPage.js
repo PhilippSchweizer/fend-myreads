@@ -61,12 +61,12 @@ class SearchPage extends Component {
         </div>
         <div className="search-books-results">
           <ol className="books-grid">
-            {bookSearch.map(searchedBook => {
+            {bookSearch && Array.isArray(bookSearch) && bookSearch.map(searchedBook => {
               let shelf = 'none'
 
-              books.map(book => (
+              {books && Array.isArray(books) && books.map(book => (
                 book.id === searchedBook.id ? shelf = book.shelf : ''
-              ))
+              ))}
 
               return (
                 <Book
