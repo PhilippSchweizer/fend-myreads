@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import BookShelfChanger from './BookShelfChanger.js'
 
 // use functional component instead of full class-based component
