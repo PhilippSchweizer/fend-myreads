@@ -24,7 +24,7 @@ class BooksApp extends Component {
 
   changeShelf = (book, shelf) => {
     BooksAPI.update(book, shelf)
-    this.updateBooks()
+      .then(response => this.updateBooks())
   }
 
   componentDidMount() {
