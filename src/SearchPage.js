@@ -65,9 +65,9 @@ class SearchPage extends Component {
             {bookSearch && Array.isArray(bookSearch) && bookSearch.map(searchedBook => {
               let shelf = 'none'
 
-              {books && Array.isArray(books) && books.map(book => (
+              books && Array.isArray(books) && books.map(book => (
                 book.id === searchedBook.id ? shelf = book.shelf : ''
-              ))}
+              ))
 
               return (
                 <Book
