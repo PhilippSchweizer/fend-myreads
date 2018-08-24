@@ -36,6 +36,9 @@ class SearchPage extends Component {
   }
 
   render() {
+    const { bookSearch, query } = this.state
+    const { books, changeShelf } = this.props
+
     return (
       <div className="search-books">
         <div className="search-books-bar">
@@ -50,7 +53,7 @@ class SearchPage extends Component {
             <DebounceInput
               type="text"
               placeholder="Search by title or author"
-              value={this.state.query}
+              value={query}
               minLength={2}
               debounceTimeout={200}
               onChange={event => this.updateQuery(event.target.value)} />
@@ -58,10 +61,10 @@ class SearchPage extends Component {
         </div>
         <div className="search-books-results">
           <ol className="books-grid">
-            {this.state.bookSearch.map(searchedBook => {
+            {bookSearch.map(searchedBook => {
               let shelf = 'none'
 
-              this.props.books.map(book => (
+              books.map(book => (
                 book.id === searchedBook.id ? shelf = book.shelf : ''
               ))
 
@@ -70,7 +73,7 @@ class SearchPage extends Component {
                   key={searchedBook.id}
                   book={searchedBook}
                   shelf={shelf}
-                  changeShelf={this.props.changeShelf} />
+                  changeShelf={changeShelf} />
               )
             }
             )}
