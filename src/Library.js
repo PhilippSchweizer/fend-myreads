@@ -11,7 +11,8 @@ class Library extends Component {
       <div className="list-books">
         <Header />
         <div className="list-books-content">
-          {shelfs.map((shelf) => (
+          {/* Checks that shelfs is not null or undefined */}
+          {shelfs && Array.isArray(shelfs) && shelfs.map((shelf) => (
             <BookShelf
               key={shelf.id}
               books={books}
